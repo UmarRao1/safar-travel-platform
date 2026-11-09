@@ -1,0 +1,86 @@
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum BookingStatus {
+  PENDING
+  QUOTED
+  CONFIRMED
+  CANCELLED
+}
+
+enum TripType {
+  DOMESTIC
+  INTERNATIONAL
+  HAJJ_UMRAH
+}
+
+model Destination {
+  id          String      @id @default(cuid())
+  name        String
+  slug        String      @unique
+  country     String      @default("Pakistan")
+  description String      @db.Text
+  imageUrl    String?
+  isFeatured  Boolean     @default(false)
+  packages    TourPackage[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model TourPackage {
+  id              String        @id @default(cuid())
+  title           String
+  slug            String        @unique
+  description     String        @db.Text
+  tripType        TripType      @default(DOMESTIC)
+  durationDays    Int
+  estimatedPrice  Decimal?      @db.Decimal(12, 2)
+  currency        String        @default("PKR")
+  imageUrl        String?
+  isActive        Boolean       @default(true)
+  destinationId   String
+  destination     Destination   @relation(fields: [destinationId], references: [id])
+  bookingRequests BookingRequest[]
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model BookingRequest {
+  id             String        @id @default(cuid())
+  customerName   String
+  email          String
+  phone          String
+  travelers      Int
+  startDate      DateTime?
+  specialRequests String?      @db.Text
+  status         BookingStatus @default(PENDING)
+  quotedPrice    Decimal?      @db.Decimal(12, 2)
+  currency       String        @default("PKR")
+  adminNotes     String?       @db.Text
+  tourPackageId  String?
+  tourPackage    TourPackage?  @relation(fields: [tourPackageId], references: [id])
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model TripPlan {
+  id              String   @id @default(cuid())
+  sessionId       String?
+  destinationText String
+  travelers       Int
+  durationDays    Int
+  budget          Decimal? @db.Decimal(12, 2)
+  currency        String   @default("PKR")
+  preferences     String?  @db.Text
+  itinerary       Json
+  estimatedCost   Decimal? @db.Decimal(12, 2)
+  sources         Json?
+  createdAt       DateTime @default(now())
+}
