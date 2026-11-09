@@ -1,4 +1,4 @@
-﻿# Safar â€” AI-Assisted Travel Platform
+﻿# Safar AI-Assisted Travel Platform
 
 Safar is a full-stack travel website for planning and booking trips across Pakistan and abroad. Visitors can browse destinations, generate an AI-written itinerary with a cost estimate, and send booking requests that an admin manages from a private dashboard.
 
