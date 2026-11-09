@@ -1,8 +1,8 @@
-# Safar — AI-Assisted Travel Platform
+﻿# Safar â€” AI-Assisted Travel Platform
 
 Safar is a full-stack travel website for planning and booking trips across Pakistan and abroad. Visitors can browse destinations, generate an AI-written itinerary with a cost estimate, and send booking requests that an admin manages from a private dashboard.
 
-[![CI](https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/ci.yml)
+[![CI](https://github.com/UmarRao1/safar-travel-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/UmarRao1/safar-travel-platform/actions/workflows/ci.yml)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Screenshots
@@ -29,11 +29,11 @@ Safar is a full-stack travel website for planning and booking trips across Pakis
 
 ## Features
 
-- **Destination catalogue** — database-driven destinations and tour packages (domestic, international, Hajj & Umrah).
-- **AI trip planner** — generates day-by-day itineraries with Google Gemini, enriched with web results from Tavily, plus an interactive Leaflet map.
-- **Cost estimates** — configurable per-person planning allowances (accommodation, meals, transport, activities, contingency).
-- **Booking requests** — customers submit enquiries; status flows `PENDING → QUOTED → CONFIRMED / CANCELLED`.
-- **Admin dashboard** — password-protected area to review bookings, add quotes and notes.
+- **Destination catalogue** â€” database-driven destinations and tour packages (domestic, international, Hajj & Umrah).
+- **AI trip planner** â€” generates day-by-day itineraries with Google Gemini, enriched with web results from Tavily, plus an interactive Leaflet map.
+- **Cost estimates** â€” configurable per-person planning allowances (accommodation, meals, transport, activities, contingency).
+- **Booking requests** â€” customers submit enquiries; status flows `PENDING â†’ QUOTED â†’ CONFIRMED / CANCELLED`.
+- **Admin dashboard** â€” password-protected area to review bookings, add quotes and notes.
 - **Light/dark theme and accent colours.**
 
 ## Tech stack
@@ -58,7 +58,7 @@ Safar is a full-stack travel website for planning and booking trips across Pakis
 ### Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git clone https://github.com/UmarRao1/safar-travel-platform.git
 cd YOUR_REPO
 npm install
 
