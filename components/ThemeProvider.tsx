@@ -1,4 +1,4 @@
-﻿
+
 "use client";
 
 import {
@@ -40,6 +40,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   };
 
   // Restore the user's saved preferences when the page loads.
+  /* eslint-disable react-hooks/set-state-in-effect -- one-time hydration from localStorage */
   useEffect(() => {
     try {
       const savedTheme = localStorage.getItem("safar-theme");
@@ -61,6 +62,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     setReady(true);
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   // Apply and save the selected preferences.
   useEffect(() => {
